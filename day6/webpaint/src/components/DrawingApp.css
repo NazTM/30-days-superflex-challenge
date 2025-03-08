@@ -1,0 +1,199 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* Prevent scrollbars */
+  position: fixed; /* Prevent layout shifts */
+  top: 0;
+  left: 0;
+}
+
+.drawing-app {
+  position: fixed; /* Use fixed positioning to prevent layout shifts */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f5f5dc; /* Light beige background */
+  overflow: hidden; /* Prevent scrollbars */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.desktop-frame {
+  position: absolute; /* Changed from relative to absolute */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #f5f5dc; /* Light beige background */
+  z-index: 0;
+}
+
+.drawing-canvas {
+  position: absolute; /* Changed from relative to absolute */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80vw; /* Use viewport width instead of percentage */
+  height: 80vh; /* Use viewport height instead of percentage */
+  min-width: 300px;
+  min-height: 300px;
+  max-width: calc(100vw - 100px); /* Account for palette width */
+  max-height: calc(100vh - 40px); /* Add some margin */
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  z-index: 1;
+  cursor: crosshair;
+  touch-action: none; /* Prevents default touch actions */
+}
+
+.color-palette {
+  position: fixed; /* Changed from absolute to fixed */
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+  align-items: center;
+  z-index: 2;
+  padding: 1vh 0;
+}
+
+.color-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #000000;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  margin: 0.5vh 0;
+}
+
+.color-circle:hover {
+  transform: scale(1.1);
+}
+
+.color-circle.active {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.refresh-icon {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  margin-top: 2vh;
+  background-color: #32ba00;
+  color: white;
+  border-radius: 50%;
+  border: 1px solid #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.refresh-icon:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width: 1024px) {
+  .drawing-canvas {
+    width: 75vw;
+    height: 75vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .desktop-frame {
+    flex-direction: column;
+  }
+  
+  .drawing-canvas {
+    width: 90vw;
+    height: 65vh;
+    top: 55%;
+  }
+  
+  .color-palette {
+    position: fixed;
+    left: 0;
+    top: 10px;
+    transform: none;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    padding: 10px 0;
+    gap: 15px;
+  }
+  
+  .color-circle {
+    margin: 0 5px;
+  }
+  
+  .refresh-icon {
+    margin-top: 0;
+    margin-left: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .drawing-canvas {
+    width: 95vw;
+    height: 60vh;
+    min-width: 250px;
+    min-height: 250px;
+  }
+  
+  .color-palette {
+    flex-wrap: wrap;
+    padding: 5px 20px;
+  }
+  
+  .color-circle {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+@media (max-width: 768px) and (orientation: portrait) {
+  .drawing-canvas {
+    height: 60vh;
+  }
+}
+
+@media (max-width: 768px) and (orientation: landscape) {
+  .drawing-canvas {
+    height: 65vh;
+  }
+  
+  .color-palette {
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    flex-direction: column;
+    padding: 5px 0;
+  }
+}
