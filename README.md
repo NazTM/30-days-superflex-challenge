@@ -13,4 +13,4 @@ Day 4: https://www.figma.com/design/AHwaXwklrPR7iqk8Nds0Om/Untitled?node-id=0-1&
 Day 5: https://www.figma.com/design/P7V8sGBIKC9bm7HTVsPnuJ/Untitled?node-id=0-1&t=yA96jmCmrQ5W5TxN-1
 
 Day 6: https://www.figma.com/design/o41OFKizCItvxGnq3SkcW3/Untitled?node-id=0-1&t=z7pgKEKarcMIaP7F-1
-Site: https://superflex-webpaint-9cbxn1o5w-nazibas-projects.vercel.app/
+Site: https://superflex-webpaint.vercel.app/
